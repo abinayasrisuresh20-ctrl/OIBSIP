@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A responsive calculator built for the Oasis Infobyte internship project.">
+
+    <title>OIBSIP | Calculator</title>
+
+    <!-- Connect CSS file -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Connect JavaScript file -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <main class="calculator-container">
+        <section class="calculator" aria-label="Calculator">
+
+            <header class="calculator-header">
+                <h1>Calculator</h1>
+                <p>Simple. Smart. Accurate.</p>
+            </header>
+
+            <!-- Calculator display -->
+            <div class="display" aria-live="polite" aria-atomic="true">
+                <div id="expression" class="expression"> </div>
+                <output id="current-display" class="current-display">0</output>
+            </div>
+
+            <!-- Calculator buttons -->
+            <div id="keypad" class="keypad">
+
+                <button type="button" data-action="clear"
+                    class="key key-action">C</button>
+
+                <button type="button" data-action="backspace"
+                    class="key key-action" aria-label="Backspace">⌫</button>
+
+                <button type="button" data-operator="/"
+                    class="key key-operator" aria-label="Divide">÷</button>
+
+                <button type="button" data-operator="*"
+                    class="key key-operator" aria-label="Multiply">×</button>
+
+                <button type="button" data-number="7" class="key">7</button>
+                <button type="button" data-number="8" class="key">8</button>
+                <button type="button" data-number="9" class="key">9</button>
+
+                <button type="button" data-operator="-"
+                    class="key key-operator" aria-label="Subtract">−</button>
+
+                <button type="button" data-number="4" class="key">4</button>
+                <button type="button" data-number="5" class="key">5</button>
+                <button type="button" data-number="6" class="key">6</button>
+
+                <button type="button" data-operator="+"
+                    class="key key-operator" aria-label="Add">+</button>
+
+                <button type="button" data-number="1" class="key">1</button>
+                <button type="button" data-number="2" class="key">2</button>
+                <button type="button" data-number="3" class="key">3</button>
+
+                <button type="button" data-action="equals"
+                    class="key key-equals">=</button>
+
+                <button type="button" data-number="0"
+                    class="key key-zero">0</button>
+
+                <button type="button" data-action="decimal"
+                    class="key">.</button>
+
+            </div>
+
+            <footer class="calculator-footer">
+                <p>Oasis Infobyte · Web Development &amp; Designing</p>
+            </footer>
+
+        </section>
+    </main>
+
+</body>
+</html>

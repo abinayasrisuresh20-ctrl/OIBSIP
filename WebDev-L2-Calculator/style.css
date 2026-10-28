@@ -1,0 +1,267 @@
+/* =================================
+   OIBSIP LEVEL 2 - CALCULATOR
+   Stylesheet
+================================= */
+
+/* 1. CSS variables */
+:root {
+    --bg-color: #0f172a;
+    --card-color: #1e293b;
+    --display-color: #0b1220;
+    --number-color: #334155;
+    --number-hover: #475569;
+    --operator-color: #334e8b;
+    --operator-hover: #4163a8;
+    --action-color: #475569;
+    --action-hover: #64748b;
+    --equals-color: #10b981;
+    --equals-hover: #059669;
+    --text-color: #f8fafc;
+    --muted-color: #94a3b8;
+    --border-color: #334155;
+    --focus-color: #facc15;
+    --radius: 16px;
+    --button-radius: 10px;
+    --spacing: 12px;
+}
+
+/* 2. Reset and box sizing */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    min-width: 320px;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top, #1e3a5f 0%, transparent 45%),
+        var(--bg-color);
+    color: var(--text-color);
+}
+
+/* 3. Main page layout */
+.calculator-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+}
+
+/* 4. Calculator card */
+.calculator {
+    width: 100%;
+    max-width: 380px;
+    padding: 24px;
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+/* 5. Header */
+.calculator-header {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.calculator-header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.calculator-header p {
+    margin-top: 6px;
+    color: var(--muted-color);
+    font-size: 0.9rem;
+}
+
+/* 6. Display screen */
+.display {
+    min-width: 0;
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 18px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    background: var(--display-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--button-radius);
+}
+
+.expression {
+    width: 100%;
+    min-height: 18px;
+    color: var(--muted-color);
+    text-align: right;
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+}
+
+.current-display {
+    display: block;
+    width: 100%;
+    color: var(--text-color);
+    text-align: right;
+    font-size: clamp(1.7rem, 8vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+/* 7. Keypad using CSS Grid */
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--spacing);
+}
+
+/* 8. Common button styles */
+.key {
+    min-width: 0;
+    min-height: 58px;
+    padding: 12px 4px;
+    border: 1px solid transparent;
+    border-radius: var(--button-radius);
+    background: var(--number-color);
+    color: var(--text-color);
+    font: inherit;
+    font-size: 1.15rem;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+        background-color 0.18s ease,
+        transform 0.12s ease,
+        box-shadow 0.18s ease;
+}
+
+/* 9. Number button hover */
+.key:hover {
+    background: var(--number-hover);
+}
+
+/* 10. Pressed button animation */
+.key:active {
+    transform: scale(0.95);
+}
+
+/* 11. Keyboard focus visibility */
+.key:focus-visible {
+    outline: 3px solid var(--focus-color);
+    outline-offset: 3px;
+    position: relative;
+    z-index: 1;
+}
+
+/* 12. Clear and backspace buttons */
+.key-action {
+    background: var(--action-color);
+    color: #ffffff;
+}
+
+.key-action:hover {
+    background: var(--action-hover);
+}
+
+/* 13. Operator buttons */
+.key-operator {
+    background: var(--operator-color);
+    color: #ffffff;
+    font-size: 1.35rem;
+}
+
+.key-operator:hover {
+    background: var(--operator-hover);
+}
+
+/* 14. Equals button */
+.key-equals {
+    grid-row: span 2;
+    background: var(--equals-color);
+    color: #062e24;
+    font-size: 1.5rem;
+}
+
+.key-equals:hover {
+    background: var(--equals-hover);
+    color: #ffffff;
+}
+
+/* 15. Zero button takes two columns */
+.key-zero {
+    grid-column: span 2;
+}
+
+/* 16. Footer */
+.calculator-footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.calculator-footer p {
+    color: var(--muted-color);
+    font-size: 0.72rem;
+    line-height: 1.5;
+}
+
+/* 17. Small mobile screens */
+@media (max-width: 360px) {
+    .calculator {
+        padding: 16px;
+    }
+
+    .keypad {
+        gap: 8px;
+    }
+
+    .key {
+        min-height: 52px;
+        font-size: 1rem;
+    }
+
+    .key-operator {
+        font-size: 1.2rem;
+    }
+
+    .display {
+        padding: 14px;
+    }
+}
+
+/* 18. Tablet and larger screens */
+@media (min-width: 600px) {
+    .calculator {
+        max-width: 400px;
+        padding: 28px;
+    }
+
+    .key {
+        min-height: 62px;
+    }
+}
+
+/* 19. Reduce animation when requested */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
